@@ -16,8 +16,6 @@ class Button extends StatelessWidget {
       this.onPressed,
       this.onLongPressed});
 
-  final bloc = BlocProvider.getBloc<CalculatorBloc>();
-
   @override
   Widget build(BuildContext context) {
     return Padding(
