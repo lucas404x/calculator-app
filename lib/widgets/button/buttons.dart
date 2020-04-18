@@ -8,15 +8,18 @@ final bloc = BlocProvider.getBloc<CalculatorBloc>();
 
 List<Widget> buttons() {
   int _operator = 0;
-  List<Widget> _buttons = [];
+  List<Button> _buttons = [];
   List<String> _operators = ["/", "*", "-", "+"];
 
   // add clear button
 
   _buttons.add(Button(
-    ColorsButtons.CLEAR_COLOR,
-    Colors.red,
-    "C",
+    backgroundColor: ColorsButtons.CLEAR_COLOR,
+    fontColor: Colors.red,
+    text: "C",
+    onPressed: () {
+      bloc.intText.add("C");
+    },
     onLongPressed: () {
       bloc.intText.add("ClearALL");
     },
@@ -24,31 +27,107 @@ List<Widget> buttons() {
 
   // add parentheses
 
-  _buttons.add(Button(ColorsButtons.NUMBERS_COLOR, Colors.black, "("));
-  _buttons.add(Button(ColorsButtons.NUMBERS_COLOR, Colors.black, ")"));
+  _buttons.add(Button(
+    backgroundColor: ColorsButtons.NUMBERS_COLOR,
+    fontColor: Colors.black,
+    text: "(",
+    onPressed: () {
+      bloc.intText.add("(");
+    },
+  ));
+
+  _buttons.add(Button(
+    backgroundColor: ColorsButtons.NUMBERS_COLOR,
+    fontColor: Colors.black,
+    text: ")",
+    onPressed: () {
+      bloc.intText.add(")");
+    },
+  ));
 
   // add numbers
   for (int i = 9; i >= 0; i--) {
-    _buttons
-        .add(Button(ColorsButtons.NUMBERS_COLOR, Colors.black, i.toString()));
+    _buttons.add(Button(
+      backgroundColor: ColorsButtons.NUMBERS_COLOR,
+      fontColor: Colors.black,
+      text: i.toString(),
+      onPressed: () {
+        bloc.intText.add(i.toString());
+      },
+    ));
   }
 
   // add math basic operators
-  [3, 7, 11, 15].forEach((int index) {
-    _buttons.insert(
-        index,
-        Button(ColorsButtons.OPERATORS_COLOR, Colors.white,
-            _operators[_operator]));
-    _operator++;
-  });
+
+  _buttons.insert(
+      3,
+      Button(
+        backgroundColor: ColorsButtons.OPERATORS_COLOR,
+        fontColor: Colors.white,
+        text: "/",
+        onPressed: () {
+          bloc.intText.add("/");
+        },
+      ));
+
+  _buttons.insert(
+      7,
+      Button(
+        backgroundColor: ColorsButtons.OPERATORS_COLOR,
+        fontColor: Colors.white,
+        text: _operators[_operator],
+        onPressed: () {
+          bloc.intText.add("*");
+        },
+      ));
+
+  _buttons.insert(
+      11,
+      Button(
+        backgroundColor: ColorsButtons.OPERATORS_COLOR,
+        fontColor: Colors.white,
+        text: "-",
+        onPressed: () {
+          bloc.intText.add("-");
+        },
+      ));
+
+  _buttons.insert(
+      15,
+      Button(
+        backgroundColor: ColorsButtons.OPERATORS_COLOR,
+        fontColor: Colors.white,
+        text: "+",
+        onPressed: () {
+          bloc.intText.add("+");
+        },
+      ));
 
   // add point
 
-  _buttons.add(Button(ColorsButtons.NUMBERS_COLOR, Colors.black, "."));
+  _buttons.add(Button(
+    backgroundColor: ColorsButtons.NUMBERS_COLOR,
+    fontColor: Colors.black,
+    text: ".",
+    onPressed: () {
+      bloc.intText.add(".");
+    },
+  ));
 
   // add equal button
 
-  _buttons.add(Button(ColorsButtons.EQUAL_OPERATOR_COLOR, Colors.white, "="));
+  _buttons.add(Button(
+    backgroundColor: ColorsButtons.EQUAL_OPERATOR_COLOR,
+    fontColor: Colors.white,
+    text: "=",
+    onPressed: () {
+      bloc.intText.add("=");
+    },
+  ));
+
+  _buttons.forEach((Button b) {
+    print(b.text);
+  });
 
   return _buttons;
 }
