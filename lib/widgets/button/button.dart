@@ -6,9 +6,15 @@ class Button extends StatelessWidget {
   final Color backgroundColor;
   final Color fontColor;
   final String text;
+  final Function onPressed;
   final Function onLongPressed;
 
-  Button(this.backgroundColor, this.fontColor, this.text, {this.onLongPressed});
+  Button(
+      {@required this.backgroundColor,
+      @required this.fontColor,
+      @required this.text,
+      this.onPressed,
+      this.onLongPressed});
 
   final bloc = BlocProvider.getBloc<CalculatorBloc>();
 
@@ -18,9 +24,7 @@ class Button extends StatelessWidget {
         padding: EdgeInsets.all(10),
         child: FlatButton(
             onLongPress: onLongPressed,
-            onPressed: () {
-              bloc.intText.add(text);
-            },
+            onPressed: onPressed,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             color: backgroundColor,
