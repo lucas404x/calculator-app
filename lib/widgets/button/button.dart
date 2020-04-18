@@ -1,5 +1,3 @@
-import 'package:bloc_pattern/bloc_pattern.dart';
-import 'package:calculator/blocs/calculator_bloc.dart';
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
@@ -30,7 +28,7 @@ class Button extends StatelessWidget {
                 style: TextStyle(
                     color: fontColor,
                     fontFamily: "Google",
-                    fontWeight: FontWeight.w300,
+                    fontWeight: FontWeight.w400,
                     fontSize: 25))));
   }
 }
