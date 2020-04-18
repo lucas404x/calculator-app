@@ -1,11 +1,8 @@
-import 'package:bloc_pattern/bloc_pattern.dart';
-import 'package:calculator/blocs/calculator_bloc.dart';
 import 'package:flutter/material.dart';
 import 'buttons.dart';
 
 class ViewButtons extends StatelessWidget {
   final scrollControler = ScrollController();
-  final bloc = BlocProvider.getBloc<CalculatorBloc>();
 
   @override
   Widget build(BuildContext context) {
