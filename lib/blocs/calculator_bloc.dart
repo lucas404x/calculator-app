@@ -18,11 +18,11 @@ class CalculatorBloc implements BlocBase {
     outText.listen(_changeInputText);
   }
 
-  void _changeInputText(String value) {
+  void _changeInputText(String button) {
     // if the button pressed was "C"
-    if ((value == "C" || value == "ClearALL") && _text.length > 0) {
-      _text = value == "C" ? _text.substring(0, _text.length - 1) : "";
-    } else if (value == "=") {
+    if ((button == "C" || button == "ClearALL") && _text.length > 0) {
+      _text = button == "C" ? _text.substring(0, _text.length - 1) : "";
+    } else if (button == "=") {
       // if the button pressed was "equal"
 
       try {
@@ -34,8 +34,8 @@ class CalculatorBloc implements BlocBase {
       } finally {
         _expression = null;
       }
-    } else if (value != "C" && value != "ClearALL") {
-      _text = _text == "0" ? value : _text + value;
+    } else if (button != "C" && button != "ClearALL") {
+      _text = _text == "0" ? button : _text + button;
     }
     _textAreaController.add(_text.length > 0 ? _text : "0");
   }
