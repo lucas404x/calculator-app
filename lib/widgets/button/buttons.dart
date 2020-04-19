@@ -7,9 +7,7 @@ import 'button.dart';
 final bloc = BlocProvider.getBloc<CalculatorBloc>();
 
 List<Widget> buttons() {
-  int _operator = 0;
   List<Button> _buttons = [];
-  List<String> _operators = ["/", "*", "-", "+"];
 
   // add clear button
 
@@ -125,9 +123,6 @@ List<Widget> buttons() {
     },
   ));
 
-  _buttons.forEach((Button b) {
-    print(b.text);
-  });
 
   return _buttons;
 }
