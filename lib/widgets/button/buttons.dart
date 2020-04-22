@@ -73,7 +73,7 @@ List<Widget> buttons() {
       Button(
         backgroundColor: ColorsButtons.OPERATORS_COLOR,
         fontColor: Colors.white,
-        text: _operators[_operator],
+        text: "*",
         onPressed: () {
           bloc.intText.add("*");
         },
